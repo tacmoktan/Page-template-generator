@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
+//css
+import './css/template.css';
 
 const TemplateForm = () => {
 
@@ -34,21 +36,28 @@ const TemplateForm = () => {
                     <img src={data.img} alt="img for template" className="template-image" />
                 </div>)}
             {data.title && <h1 className="template-heading">{data.title}</h1>}
-            {data.body && <p className="templatedata.-body">{data.body}</p>}
+            {data.body && <p className="template-body">{data.body}</p>}
+
+            <div className="copyright-text">
+                &copy; XYZ 2020
+            </div>
         </div>
     );
 
     const htmlString = ReactDOMServer.renderToStaticMarkup(pageTemplate);       //converts JSX to html string
-    
+
     let htmlPageTemplate = document.createElement('div');
     htmlPageTemplate.innerHTML = htmlString;
-    let htmlTemplateContainer = htmlPageTemplate.querySelector('#template-container')  
+    let htmlTemplateContainer = htmlPageTemplate.querySelector('#template-container')
 
     const handleSubmit = e => {
         e.preventDefault();
         setData({ ...data, isDataSubmitted: true });
 
-        domtoimage.toBlob(htmlTemplateContainer, { width: 1080, height: 960 })
+        domtoimage.toBlob(htmlTemplateContainer, { width: 900, height: 300, 
+        style:{
+            backgroundColor: '#633a82' 
+        }})
             .then(function (blob) {
                 window.saveAs(blob, "page-template.png");
             });
@@ -57,27 +66,24 @@ const TemplateForm = () => {
 
     return (
         <>
-            <form id="main-form" onSubmit={e => handleSubmit(e)}>
-                <div>
-                    <label>Title
-                    <input type="text" className="form-input" id="title" onChange={handleInput('title')} autoFocus={true} required />
-                    </label>
-                </div>
+            <div className="form-container">
+                <form id="main-form" onSubmit={e => handleSubmit(e)}>
+                    <div className="input-container">
+                        <label className="input-label" htmlFor="title">Title* </label>
+                        <input type="text" className="form-input" id="title" onChange={handleInput('title')} autoFocus={true} required />
+                    </div>
+                    <div className="input-container">
+                        <label className="input-label" htmlFor="body">Body* </label>
+                        <textarea type="text" className="form-input" id="body" onChange={handleInput('body')} required />
+                    </div>
+                    <div className="input-container">
+                        <label className="input-label" htmlFor="img-input">Image </label>
+                        <input type="file" className="form-input" id="img-input" accept="image/*" onChange={handleImageInput()} />
+                    </div>
 
-                <div>
-                    <label>Body
-                    <textarea type="text" className="form-input" id="body" onChange={handleInput('body')} required />
-                    </label>
-                </div>
-
-                <div>
-                    <label>Image
-                    <input type="file" className="form-input" id="img" accept="image/*" onChange={handleImageInput()} required />
-                    </label>
-                </div>
-                <button type="submit" className="button" >SUBMIT</button>
-            </form>
-
+                    <button type="submit" className="button" >SUBMIT</button>
+                </form>
+            </div>
             {data.isDataSubmitted && pageTemplate}
 
         </>

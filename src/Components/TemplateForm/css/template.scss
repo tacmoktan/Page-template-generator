@@ -1,0 +1,76 @@
+/* Variables */
+$primary-color: #40e0d0;
+$secondary-color: #633a82;
+$tertiary-color: #f1fcfc;
+
+.form-container {
+  background: whitesmoke;
+
+  #main-form {
+    max-width: 1140px;
+    display: grid;
+    row-gap: 20px;
+    padding: 40px 20px;
+    width: fit-content;
+    margin: 0 auto;
+    .input-container {
+      .input-label {
+        display: block;
+      }
+
+      .form-input {
+        padding: 5px;
+        min-width: 300px;
+        width: 30vw;
+        height: 25px;
+      }
+
+      #body {
+        height: 100px;
+      }
+    }
+  }
+}
+
+.container {
+  max-width: 1140px;
+  margin: 20px auto;
+  padding: 60px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  background: $secondary-color;
+  color: $tertiary-color;
+  .template-heading {
+    color: black;
+  }
+  .template-body {
+    text-align: left;
+    margin: 20px 0;
+  }
+}
+
+/* input types */
+input[type="text"],
+textarea[type="text"],
+input[type="file"],
+button[type="submit"] {
+  &:focus {
+    outline-color: $primary-color;
+  }
+}
+
+.button {
+  width: 100px;
+  padding: 10px;
+  border: 2px solid darken($primary-color, 10%);
+  color: darken($primary-color, 10%);
+  font-weight: bold;
+
+  transition: background, color 0.15s ease-in;
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background: darken($primary-color, 15%);
+  }
+}

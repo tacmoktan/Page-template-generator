@@ -1,0 +1,76 @@
+/* Variables */
+.form-container {
+  background: whitesmoke;
+}
+
+.form-container #main-form {
+  max-width: 1140px;
+  display: -ms-grid;
+  display: grid;
+  row-gap: 20px;
+  padding: 40px 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.form-container #main-form .input-container .input-label {
+  display: block;
+}
+
+.form-container #main-form .input-container .form-input {
+  padding: 5px;
+  min-width: 300px;
+  width: 30vw;
+  height: 25px;
+}
+
+.form-container #main-form .input-container #body {
+  height: 100px;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 20px auto;
+  padding: 60px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  background: #633a82;
+  color: #f1fcfc;
+}
+
+.container .template-heading {
+  color: black;
+}
+
+.container .template-body {
+  text-align: left;
+  margin: 20px 0;
+}
+
+/* input types */
+input[type="text"]:focus,
+textarea[type="text"]:focus,
+input[type="file"]:focus,
+button[type="submit"]:focus {
+  outline-color: #40e0d0;
+}
+
+.button {
+  width: 100px;
+  padding: 10px;
+  border: 2px solid #21ccbb;
+  color: #21ccbb;
+  font-weight: bold;
+  -webkit-transition: background, color 0.15s ease-in;
+  transition: background, color 0.15s ease-in;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: white;
+  background: #1eb6a7;
+}
+/*# sourceMappingURL=template.css.map */

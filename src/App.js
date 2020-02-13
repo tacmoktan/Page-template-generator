@@ -1,6 +1,6 @@
 import React from 'react';
 //components
-import TemplateForm from './Components/TemplateForm';
+import TemplateForm from './Components/TemplateForm/TemplateForm';
 
 function App() {
   return (
