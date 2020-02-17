@@ -8,26 +8,50 @@
   display: -ms-grid;
   display: grid;
   row-gap: 20px;
-  padding: 40px 20px;
+  padding: 40px 0;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
 }
 
+.form-container #main-form .input-container {
+  display: -ms-grid;
+  display: grid;
+  grid-row-gap: 10px;
+}
+
 .form-container #main-form .input-container .input-label {
   display: block;
+  color: #633a82;
 }
 
 .form-container #main-form .input-container .form-input {
   padding: 5px;
   min-width: 300px;
   width: 30vw;
-  height: 25px;
+  height: 35px;
+  border: none;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0px 2px #888888;
+          box-shadow: 0 0px 2px #888888;
+  outline-color: white;
+  -webkit-transition: outline-color 0.25s ease-in;
+  transition: outline-color 0.25s ease-in;
 }
 
 .form-container #main-form .input-container #body {
   height: 100px;
+}
+
+.form-container #main-form .download.button {
+  border-color: #7e4aa5;
+  color: #7e4aa5;
+}
+
+.form-container #main-form .download.button:hover {
+  color: white;
+  background: #9767bb;
 }
 
 #template-container {
@@ -35,7 +59,7 @@
   margin: 20px auto;
   padding: 60px;
   background: #633a82;
-  color: #f1fcfc;
+  color: #bbbbbb;
   position: relative;
   z-index: 1;
 }
@@ -116,6 +140,7 @@ button[type="submit"]:focus {
   border: 2px solid #21ccbb;
   color: #21ccbb;
   font-weight: bold;
+  text-transform: uppercase;
   -webkit-transition: background, color 0.15s ease-in;
   transition: background, color 0.15s ease-in;
   cursor: pointer;

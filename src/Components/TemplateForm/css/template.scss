@@ -1,7 +1,7 @@
 /* Variables */
 $primary-color: #40e0d0;
 $secondary-color: #633a82;
-$tertiary-color: #f1fcfc;
+$tertiary-color: rgb(187, 187, 187);
 
 .form-container {
   background: whitesmoke;
@@ -10,23 +10,40 @@ $tertiary-color: #f1fcfc;
     max-width: 1140px;
     display: grid;
     row-gap: 20px;
-    padding: 40px 20px;
+    padding: 40px 0;
     width: fit-content;
     margin: 0 auto;
     .input-container {
+      display: grid;
+      grid-row-gap: 10px;
       .input-label {
         display: block;
+        color: $secondary-color;
       }
 
       .form-input {
         padding: 5px;
         min-width: 300px;
         width: 30vw;
-        height: 25px;
+        height: 35px;
+        border: none;
+        border-radius: 3px;
+        box-shadow: 0 0px 2px darken($tertiary-color, 20%);
+        outline-color:white;
+        transition: outline-color 0.25s ease-in;
       }
 
       #body {
         height: 100px;
+      }
+    }
+
+    .download.button {
+      border-color: lighten($secondary-color, 10%);
+      color: lighten($secondary-color, 10%);
+      &:hover{
+        color:white;
+        background: lighten($secondary-color, 20%);
       }
     }
   }
@@ -55,19 +72,19 @@ $tertiary-color: #f1fcfc;
   }
   .template-heading {
     text-transform: uppercase;
-    position:relative;
-    width:fit-content;
-    margin:0 auto;
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
 
-    &:after{
-      content:"";
+    &:after {
+      content: "";
       position: absolute;
-      width:10vw;
-      min-width:100px;
-      border-bottom:2px solid;
-      bottom:-5px;
-      left:50%;
-      transform:translateX(-50%);
+      width: 10vw;
+      min-width: 100px;
+      border-bottom: 2px solid;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
   .template-body {
@@ -76,10 +93,10 @@ $tertiary-color: #f1fcfc;
   }
 
   .copyright-text {
-    width:fit-content;
-    margin:0 auto;
+    width: fit-content;
+    margin: 0 auto;
     position: relative;
-    background:$secondary-color;
+    background: $secondary-color;
     box-shadow: 0px 0px 0px 8px $secondary-color;
 
     &:before {
@@ -91,7 +108,7 @@ $tertiary-color: #f1fcfc;
       top: 50%;
       transform: translate(-50%);
       border-bottom: 1px solid;
-      
+
       z-index: -1;
     }
   }
@@ -113,7 +130,7 @@ button[type="submit"] {
   border: 2px solid darken($primary-color, 10%);
   color: darken($primary-color, 10%);
   font-weight: bold;
-
+  text-transform: uppercase;
   transition: background, color 0.15s ease-in;
   cursor: pointer;
   &:hover {
